@@ -1,0 +1,11 @@
+        table, th, td{
+            border: 1px solid lawngreen;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: center;
+        }
+        thead{
+            background: lawngreen;
+        }
+       
+        

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- question2 -->
+    <h1 id="q2">Hello Buddy!!</h1>
+    <div class="avnew">
+      some content
+    </div>
+    <h2 class="avnew">Whatever!!!</h2>
+    <div id="main" style="font-size:50px">
+      Main paragraph
+      <div class="target" style="font-size: 10px">
+        Inside Main Paragraph
+      </div>
+      <div class="nottrgt" style="font-size: 10px">
+        Inside main paragraph ..
+      </div>
+
+      <input type="button" value="change font" />
+    </div>
+    <p id="ele">
+      p element
+    </p>
+
+    <select id="dropdown">
+      <option>option1</option>
+      <option>option2</option>
+      <option>option3</option>
+      <option>option4</option>
+    </select>
+
+    <br />
+    <div id="div1">testing div</div>
+    <br />
+    <p id="hv">Hover Here!!</p>
+    <ul id="list">
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+    </ul>
+    <br />
+
+    <a href="https://www.google.com" id="link">google.com</a>
+    <br />
+    <div id="q12">
+      Exersice 12
+      <ul>
+        <li>Value 1</li>
+        <li>Value 2</li>
+        <li>Value 3</li>
+      </ul>
+    </div>
+    <br />
+    <table id="e14" style="border:2px solid black">
+      <tr>
+        <td>01</td>
+        <td>20</td>
+        <td>03</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>05</td>
+        <td>68</td>
+      </tr>
+      <tr>
+        <td>07</td>
+        <td>08</td>
+        <td>94</td>
+      </tr>
+    </table>
+
+    <br />
+    <!-- Question16 -->
+    <table border="1" id="e16">
+      <tr>
+        <th>ename</th>
+        <th>edept</th>
+        <th>Remove</th>
+      </tr>
+      <tr data-id="1">
+        <td>heena</td>
+
+        <td>A</td>
+        <td><button>Remove</button></td>
+      </tr>
+      <tr data-id="2">
+        <td>kandarp</td>
+        <td>C</td>
+        <td><button>Remove</button></td>
+      </tr>
+    </table>
+
+    <br />
+      Q17
+      <p>
+        <img id="q17" src="" height="150" width="150" />
+        <button>Next Image</button>
+      </p>
+    </div>
+    <br />
+    <input
+      type="button"
+      value="Wanna Submit?"
+      id="bttn"
+      onsubmit="document.write('submitted')"
+    />
+    <br />
+    <input type="button" value="append" id="b1" />
+    <br>
+    <input type="button" value="Question8" id="q8a" />
+  </body>
+  <script type="text/javascript">
+    // question2
+    $("#q2").addClass("load");
+
+    // question3
+    $("[class$=new]").css("color", "red"); //matching class end with new
+    // question4
+    $("[id=bttn]").attr("disabled", true);
+    // question5
+    $("#main>input[type='button']").click(function() {
+      $("#main")
+        .children(".target")
+        .css("font-size", "100px");
+    });
+    //question6
+    $("div:first").replaceWith("<p>replaced</p>");
+
+    //question7
+    $("#b1").click(function() {
+      var $cloned = $("#b1").clone();
+      //$cloned.removeAttr("id");
+      $("#b1").after($cloned);
+    });
+    // //question8
+    $("#q8a").after("<p id='e8'>Exercise 8</p>");
+    $("#e8").on("click", function() {
+      $("#e8").text("Exercise 8 Changed");
+    });
+
+    //question9
+    $("#dropdown").on("click", function() {
+      $("#div1").append($("#dropdown").val());
+    });
+
+    //question10
+    $("#list").hide();
+    $("#hv").hover(function() {
+      $("#list").toggle();
+    });
+
+    //question11
+    $("#link").on("click", function(e) {
+      e.preventDefault();
+    });
+
+    // Question12
+    $("#q12").click(function(e) {
+      $("#q12").append("div clicked<br>");
+    });
+    $("#q12 li").click(function(e) {
+      $("#q12").append("li clicked<br>");
+      e.stopPropagation();
+    });
+
+    // Question 13
+    var h = 0;
+    $("body")
+      .children()
+      .each(function() {
+        if (h < $(this).height()) {
+          h = $(this).height();
+        }
+      });
+    console.log("Max height : ", h);
+    //question14
+    $("#e14 td").each(function(e) {
+      if (!isNaN($(this).text()) && $(this).text() > 10) {
+        $(this).css("color", "green");
+      }
+    });
+
+    // Exercise 15
+    $.ajax({
+      url: "https://jsonplaceholder.typicode.com/todos/1",
+      success: function(data) {
+        $("#e15").append("<br>" + JSON.stringify(data));
+      }
+    });
+
+    // Exercise 16
+    $("#e16 button").click(function(e) {
+      $.ajax({
+        url:
+          "https://jsonplaceholder.typicode.com/posts/" +
+          $(e.target)
+            .parent()
+            .parent()
+            .data("id"),
+        method: "delete",
+        success: function(data) {
+          $(e.target)
+            .parent()
+            .parent()
+            .remove();
+        }
+      });
+    });
+    //question 17
+    var img_src = [
+      "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com",
+      "https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com",
+      "https://via.placeholder.com/150/FFFF00/000000?Text=WebsiteBuilders.com",
+
+      "https://via.placeholder.com/150/000000/FFFFFF/?text=IPaddress.net"
+    ];
+    $("#q17").attr(
+      "src",
+      "https://via.placeholder.com/150/000000/FFFFFF/?text=IPaddress.net"
+    );
+    $("#q17~button").click(function(e) {
+      $("#q17").animate({ opacity: "0" }, 500, function() {
+        $("#q17").attr(
+          "src",
+          img_src[Math.floor(Math.random() * img_src.length)]
+        );
+        $("#q17").css("opacity", "1");
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,11 @@
+
+  <script type="text/javascript">
+    var obj1 = { p1: "v1", p2: "v2" };
+    var obj2 = {};
+    function copyProperties(obj2, obj1) {
+      for (prop in obj1) {
+        obj2[prop] = obj1[prop];
+      }
+      return obj2;
+    }
+

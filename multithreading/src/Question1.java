@@ -1,4 +1,3 @@
-package com.ttn.multithreading;
 class Question1 implements Runnable{
     public void run(){
         System.out.println("thread is running...");

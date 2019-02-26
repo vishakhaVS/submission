@@ -1,5 +1,3 @@
-package com.ttn.multithreading;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Question12 {

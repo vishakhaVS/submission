@@ -1,5 +1,3 @@
-package com.ttn.multithreading;
-
 public class Question10 extends Thread {
 
 

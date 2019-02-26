@@ -1,5 +1,3 @@
-package com.ttn.multithreading;
-
 public class Main {
 
     public static void main(String[] args) {

@@ -1,5 +1,3 @@
-package com.ttn.multithreading;
-
 public class Question14 {
     public void thread1() {
         synchronized (this) {

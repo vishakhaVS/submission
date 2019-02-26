@@ -1,6 +1,3 @@
-package com.ttn.multithreading;
-
-
 import java.util.concurrent.*;
 
 public class Question6 {

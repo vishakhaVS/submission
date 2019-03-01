@@ -8,11 +8,11 @@ interface employeeInterface {
 }
 
 class Employee {
-    String name;
-    int age;
-    String city;
+     private String name;
+  private  int age;
+   private String city;
 
-    public Employee(String name, int age, String city) {
+    Employee(String name, int age, String city) {
         this.name = name;
         this.age = age;
         this.city = city;
@@ -26,7 +26,7 @@ public class Question4{
 
 
         employeeInterface obj = Employee::new;
-        System.out.println(obj.getinfo("vishakha", 24, "Delhi"));
+        System.out.println(obj.getinfo("vishakha",24, "Delhi"));
     }
 
 }
